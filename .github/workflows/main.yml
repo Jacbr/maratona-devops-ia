@@ -7,7 +7,7 @@ on: #  deckaracoes
 
 jobs :
     CI:
-      runs-on: ubuntu-latest // ambiente
+      runs-on: ubuntu-latest # ambiente
       steps:  #  passos de exec.
           - run: echo "Obter o código"
           - run: echo "Executar o Docker Build"
