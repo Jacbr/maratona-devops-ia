@@ -19,7 +19,17 @@ jobs :
               password: ${{ secrets.DOCKERHUB_TOKEN }}
 
 
-          - run: echo "Executar o Docker Build"
+          - name: Build and push Docker image
+            uses: docker/build-push-action@v6
+            with:
+              # docker build -t .
+              context: 02-kube-news/src
+              file: 02-kube-news/src/Dockerfile
+              push: true
+              tags: fabriciosveronez/kube-news-maratona:v${{ github.run_number }}
+
+
+
           - run: echo "Enviar a Imagem Docker para o Docker Hub"
           
     CD:
